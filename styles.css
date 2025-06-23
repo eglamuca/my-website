@@ -477,4 +477,279 @@ body {
         gap: 12px;
     }
 }
+/* ...existing code... */
 
+@media (max-width: 900px) {
+    .hero-flex {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .footer-logos {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 10px;
+    }
+    .hero h2 {
+        font-size: 2rem;
+    }
+    .features-section,
+    .games-section,
+    .cta-section,
+    .terms-section,
+    .cookies-section,
+    .privacy-section {
+        padding: 38px 0 28px 0;
+    }
+    .content-box {
+        padding: 18px 8px;
+    }
+    .btn-primary, .btn-secondary, .btn-game {
+        font-size: 1rem;
+        padding: 12px 0;
+        width: 100%;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .footer-logos {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 12px;
+    }
+    .footer-logos img {
+        height: 32px;
+        margin-right: 0 !important;
+    }
+    .footer-disclaimer p {
+        font-size: 1rem;
+        opacity: 1;
+        padding: 10px 0;
+    }
+    .footer h3, .footer h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ...existing code... *//* ...existing code... */
+
+@media (max-width: 900px) {
+    .hero-flex {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .footer-logos {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 10px;
+    }
+    .hero h2 {
+        font-size: 2rem;
+    }
+    .features-section,
+    .games-section,
+    .cta-section,
+    .terms-section,
+    .cookies-section,
+    .privacy-section {
+        padding: 38px 0 28px 0;
+    }
+    .content-box {
+        padding: 18px 8px;
+    }
+    .btn-primary, .btn-secondary, .btn-game {
+        font-size: 1rem;
+        padding: 12px 0;
+        width: 100%;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .footer-logos {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 12px;
+    }
+    .footer-logos img {
+        height: 32px;
+        margin-right: 0 !important;
+    }
+    .footer-disclaimer p {
+        font-size: 1rem;
+        opacity: 1;
+        padding: 10px 0;
+    }
+    .footer h3, .footer h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ...existing code... *//* ...existing code... */
+
+@media (max-width: 900px) {
+    .hero-flex {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .footer-logos {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 10px;
+    }
+    .hero h2 {
+        font-size: 2rem;
+    }
+    .features-section,
+    .games-section,
+    .cta-section,
+    .terms-section,
+    .cookies-section,
+    .privacy-section {
+        padding: 38px 0 28px 0;
+    }
+    .content-box {
+        padding: 18px 8px;
+    }
+    .btn-primary, .btn-secondary, .btn-game {
+        font-size: 1rem;
+        padding: 12px 0;
+        width: 100%;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .footer-logos {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 12px;
+    }
+    .footer-logos img {
+        height: 32px;
+        margin-right: 0 !important;
+    }
+    .footer-disclaimer p {
+        font-size: 1rem;
+        opacity: 1;
+        padding: 10px 0;
+    }
+    .footer h3, .footer h4 {
+        font-size: 1.1rem;
+    }
+}
+/* ...existing code... */
+
+@media (max-width: 900px) {
+    .hero-flex {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+    .footer-logos {
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 0 10px;
+    }
+    .hero h2 {
+        font-size: 2rem;
+    }
+    .features-section,
+    .games-section,
+    .cta-section,
+    .terms-section,
+    .cookies-section,
+    .privacy-section {
+        padding: 38px 0 28px 0;
+    }
+    .content-box {
+        padding: 18px 8px;
+    }
+    .btn-primary, .btn-secondary, .btn-game {
+        font-size: 1rem;
+        padding: 12px 0;
+        width: 100%;
+    }
+    .cta-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .footer-logos {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-top: 12px;
+    }
+    .footer-logos img {
+        height: 32px;
+        margin-right: 0 !important;
+    }
+    .footer-disclaimer p {
+        font-size: 1rem;
+        opacity: 1;
+        padding: 10px 0;
+    }
+    .footer h3, .footer h4 {
+        font-size: 1.1rem;
+    }
+}
+
+/* ...existing code... */
