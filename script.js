@@ -1,31 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
     // FAQ Accordion functionality
     const faqItems = document.querySelectorAll('.faq-item');
-    
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        
         question.addEventListener('click', () => {
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.classList.remove('active');
-                }
-            });
-            
             // Toggle current item
             item.classList.toggle('active');
+            // Close other items when opening this one
+            if (item.classList.contains('active')) {
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            }
         });
     });
-    
+
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
-            
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 window.scrollTo({
@@ -35,12 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // Add animation to game cards when they come into view
-    const observerOptions = {
-        threshold: 0.1
-    };
-    
+
+    // Add animation to game cards and feature cards when they come into view
+    const observerOptions = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -48,45 +42,38 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }, observerOptions);
-    
     document.querySelectorAll('.game-card, .feature-card').forEach(card => {
         observer.observe(card);
     });
-    
-    // Mobile menu toggle (would be added if mobile menu is implemented)
-    // const mobileMenuButton = document.createElement('button');
-    // mobileMenuButton.classList.add('mobile-menu-toggle');
-    // Implement mobile menu functionality as needed
-});
-document.addEventListener('DOMContentLoaded', function() {
-    // Game data
+
+    // Game data with emojis
     const games = [
         {
             id: '26908',
             title: 'After Night Falls',
-            img: 'images/night2.jpg',
-            iframe: 'https://egamings-c2ss.betsoftgaming.com/cwguestlogin.do?gameId=295&amp;lang=en&amp;bankId=792',
+            emoji: '🕵️‍♂️',
+            iframe: 'https://egamings-c2ss.betsoftgaming.com/cwguestlogin.do?gameId=295&lang=en&bankId=792',
             category: 'Slots'
         },
         {
             id: '26901',
             title: '2 Million B.C',
-            img: 'images/milion.jpg',
-            iframe: 'https://egamings-c2ss.betsoftgaming.com/cwguestlogin.do?gameId=224&amp;lang=en&amp;bankId=792',
+            emoji: '🦴',
+            iframe: 'https://egamings-c2ss.betsoftgaming.com/cwguestlogin.do?gameId=224&lang=en&bankId=792',
             category: 'Slots'
         },
         {
             id: '26900',
             title: 'Arrival',
-            img: 'images/arival.jpg',
-            iframe: 'https://egamings-c2ss.betsoftgaming.com/cwguestlogin.do?gameId=226&amp;lang=en&amp;bankId=792',
+            emoji: '👽',
+            iframe: 'https://egamings-c2ss.betsoftgaming.com/cwguestlogin.do?gameId=226&lang=en&bankId=792',
             category: 'Slots'
         },
         {
             id: '27950',
             title: 'At The Copa',
-            img: 'images/copa.jpg',
-            iframe: 'https://egamings-c2ss.betsoftgaming.com/cwguestlogin.do?gameId=300&amp;lang=en&amp;bankId=792',
+            emoji: '💃',
+            iframe: 'https://egamings-c2ss.betsoftgaming.com/cwguestlogin.do?gameId=300&lang=en&bankId=792',
             category: 'Slots'
         }
     ];
@@ -94,25 +81,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize games in the DOM
     function initializeGames() {
         const gamesGrid = document.querySelector('.games-grid');
-        
-        // Clear existing placeholder content
+        if (!gamesGrid) return;
         gamesGrid.innerHTML = '';
-        
-        // Create game cards for each game
         games.forEach(game => {
             const gameCard = document.createElement('div');
             gameCard.className = 'game-card';
             gameCard.dataset.id = game.id;
-            
             gameCard.innerHTML = `
-                <div class="game-icon">
-                    <img src="${game.img}" alt="${game.title}">
-                </div>
+                <div class="game-icon" style="font-size:2.5rem;">${game.emoji}</div>
                 <h3>${game.title}</h3>
-                <p>Enjoy this exciting ${game.category.toLowerCase()} game completely free with no deposit required.</p>
-                <button class="btn-game" data-id="${game.id}">Play Free</button>
+                <p>Try this unique ${game.category.toLowerCase()} adventure—always free, always fun.</p>
+                <button class="btn-game" data-id="${game.id}">Play Now</button>
             `;
-            
             gamesGrid.appendChild(gameCard);
         });
     }
@@ -133,15 +113,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         `;
-        
         body.appendChild(modal);
-        
+
         // Open modal when game button is clicked
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('btn-game')) {
                 const gameId = e.target.dataset.id;
                 const game = games.find(g => g.id === gameId);
-                
                 if (game) {
                     const iframe = modal.querySelector('.game-iframe');
                     iframe.src = game.iframe;
@@ -149,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     body.classList.add('modal-open');
                 }
             }
-            
             // Close modal
             if (e.target.classList.contains('close-modal') || e.target === modal) {
                 const iframe = modal.querySelector('.game-iframe');
@@ -179,12 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 pointer-events: none;
                 transition: opacity 0.3s ease;
             }
-            
             .game-modal.active {
                 opacity: 1;
                 pointer-events: all;
             }
-            
             .modal-content {
                 background-color: white;
                 border-radius: 8px;
@@ -194,7 +169,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 padding: 20px;
                 position: relative;
             }
-            
             .close-modal {
                 position: absolute;
                 top: 10px;
@@ -203,16 +177,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 border: none;
                 font-size: 24px;
                 cursor: pointer;
-                color: var(--dark-color);
+                color: #333;
             }
-            
             .game-frame-container {
                 position: relative;
                 padding-bottom: 56.25%; /* 16:9 aspect ratio */
                 height: 0;
                 overflow: hidden;
             }
-            
             .game-iframe {
                 position: absolute;
                 top: 0;
@@ -221,14 +193,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 height: 100%;
                 border: none;
             }
-            
             .modal-disclaimer {
                 margin-top: 15px;
                 font-size: 0.8rem;
-                color: var(--gray-color);
+                color: #888;
                 text-align: center;
             }
-            
             body.modal-open {
                 overflow: hidden;
             }
@@ -236,58 +206,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.head.appendChild(style);
     }
 
-   
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
     // Initialize games and modal
     initializeGames();
     addModalStyles();
     setupGameModal();
-});
-// Update the gameCard.innerHTML in the initializeGames() function to:
-gameCard.innerHTML = `
-    <div class="game-icon">
-        <img src="${game.img}" alt="${game.title}">
-    </div>
-    <h3>${game.title}</h3>
-    <p>Enjoy this exciting ${game.category.toLowerCase()} game completely free with no deposit required.</p>
-    <button class="btn-game" data-id="${game.id}">Play Now</button>
-`;
-// FAQ Accordion functionality
-const faqItems = document.querySelectorAll('.faq-item');
-
-faqItems.forEach(item => {
-    const question = item.querySelector('.faq-question');
-    
-    question.addEventListener('click', () => {
-        // Toggle current item
-        item.classList.toggle('active');
-        
-        // Close other items when opening this one
-        if (item.classList.contains('active')) {
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
-                }
-            });
-        }
-    });
 });
 
