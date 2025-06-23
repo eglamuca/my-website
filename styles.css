@@ -421,6 +421,21 @@ body {
     font-size: 0.95rem;
     opacity: 0.8;
 }
+.footer-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0 0 0;
+    gap: 24px;
+}
+
+.footer-logos img {
+    height: 40px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    filter: brightness(0) invert(1); /* optional: makes logos white on dark backgrounds */
+}
 
 /* Responsive Design */
 @media (max-width: 900px) {
